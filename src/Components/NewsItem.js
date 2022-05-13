@@ -2,9 +2,23 @@ import React, { Component } from "react";
 
 export class NewsItem extends Component {
   render() {
-    return <div>
-        This is a news item
-        </div>;
+      let {title, description} = this.props;
+    return (
+      <div>
+        <div className="card" style={{width: "18rem"}}>
+          <img src="https://storage.googleapis.com/afs-prod/media/3e01d3953b8f4e93b81c4df9b5852d82/3000.jpeg" className="card-img-top" alt="..." />
+          <div className="card-body">
+            <h5 className="card-title">{title}</h5>
+            <p className="card-text">
+              {description}
+            </p>
+            <a href="/" className="btn btn-primary">
+              Go somewhere
+            </a>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
