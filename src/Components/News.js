@@ -2,302 +2,37 @@ import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 
 export class News extends Component {
-  articles = [
-    {
-      source: { id: "associated-press", name: "Associated Press" },
-      author: "GARY D. ROBERTSON",
-      title: "Madison Cawthorn tries to survive primary as slip-ups mount",
-      description:
-        "RALEIGH, N.C. (AP) — U.S. Rep. Madison Cawthorn's prominent role as the youngest pro-Donald Trump agitator in Congress can rub people on the right and the left the wrong way in his North Carolina district.",
-      url: "https://apnews.com/219902ac8442fbe1f1b85a7736370222",
-      urlToImage:
-        "https://storage.googleapis.com/afs-prod/media/3e01d3953b8f4e93b81c4df9b5852d82/3000.jpeg",
-      publishedAt: "2022-05-13T04:19:55Z",
-      content:
-        "RALEIGH, N.C. (AP) — U.S. Rep. Madison Cawthorn's prominent role as the youngest pro-Donald Trump agitator in Congress can rub people on the right and the left the wrong way in his North Carolina dis… [+7535 chars]",
-    },
-    {
-      source: { id: "cnn", name: "CNN" },
-      author: "Analysis by Stephen Collinson and Maeve Reston, CNN",
-      title:
-        "Analysis: Trump struggles to keep control of his own MAGA movement",
-      description:
-        "It's becoming the MAGA midterms -- with or without former President Donald Trump.",
-      url: "http://us.cnn.com/2022/05/13/politics/trump-maga-republicans-primaries/index.html",
-      urlToImage:
-        "https://cdn.cnn.com/cnnnext/dam/assets/220512175409-trump-rally-april-23-super-tease.jpg",
-      publishedAt: "2022-05-13T04:00:38Z",
-      content: null,
-    },
-    {
-      source: { id: "national-review", name: "National Review" },
-      author: "Zachary Evans",
-      title:
-        "Trump Issues Statement Backing Dr. Oz after Barnette Rise in Pennsylvania",
-      description:
-        "‘Kathy Barnette will never be able to win the General Election against the Radical Left Democrats,’ Trump said.",
-      url: "https://www.nationalreview.com/news/trump-issues-statement-backing-dr-oz-after-barnette-rise-in-pennsylvania/",
-      urlToImage:
-        "https://www.nationalreview.com/wp-content/uploads/2022/05/OzTrump.jpg?fit=2057%2C1200",
-      publishedAt: "2022-05-13T02:14:53Z",
-      content: null,
-    },
-    {
-      source: { id: "fox-news", name: "Fox News" },
-      author: "Fox News",
-      title:
-        "Hillary Clinton-hired oppo research firm must turn emails over to Durham probe, judge rules",
-      description:
-        "GPS Fusion, the research firm Hillary Clinton’s 2016 campaign hired to dig up dirt on Donald Trump’s supposed ties to Russia, must turn over nearly two dozen emails to special counsel John Durham, a federal judge ruled Thursday.",
-      url: "https://www.foxnews.com/politics/hillary-clinton-oppo-research-firm-must-turn-emails-durham-probe",
-      urlToImage:
-        "https://static.foxnews.com/foxnews.com/content/uploads/2021/10/John-Durham-Michael-Sussman.jpg",
-      publishedAt: "2022-05-13T01:37:15.8579954Z",
-      content:
-        "GPS Fusion, the research firm Hillary Clintons 2016 campaign hired to dig up dirt on Donald Trumps supposed ties to Russia, must turn over nearly two dozen emails to special counsel John Durham, a fe… [+2609 chars]",
-    },
-    {
-      source: { id: "google-news", name: "Google News" },
-      author: null,
-      title: "Trump: Barnette will never win Pennsylvania - CNN Video",
-      description:
-        "With the upcoming Pennsylvania Republican Senate primary race, an unfamiliar name is now getting attention. If elected, Kathy Barnette would become Pennsylvania's first Black senator. Now that she's a top contender, she's facing more scrutiny. CNN's Jeff Zele…",
-      url: "https://www.cnn.com/videos/politics/2022/05/13/pennsylvania-senate-gop-race-kathy-barnette-trump-zeleny-pkg-ac360-vpx.cnn",
-      urlToImage:
-        "https://cdn.cnn.com/cnnnext/dam/assets/220510220412-kathy-barnette-file-042522-super-tease.jpg",
-      publishedAt: "2022-05-13T01:25:02+00:00",
-      content:
-        "With the upcoming Pennsylvania Republican Senate primary race, an unfamiliar name is now getting attention. If elected, Kathy Barnette would become Pennsylvania's first Black senator. Now that she's … [+71 chars]",
-    },
-    {
-      source: { id: "breitbart-news", name: "Breitbart News" },
-      author: "John Binder",
-      title:
-        "Trump's ICE Chief: GOP 'Shouldn't Be Talking About Ukraine' While Terrorists Exploit U.S. Border",
-      description:
-        'Thomas Homan says Republicans "shouldn\'t be talking about Ukraine" while terrorists are exploiting the border to enter the nation.',
-      url: "https://www.breitbart.com/politics/2022/05/12/trumps-ice-chief-gop-talking-ukraine-terrorists-exploit-border/",
-      urlToImage:
-        "https://media.breitbart.com/media/2022/05/Yemeni-nationals-on-Terror-Watch-List-640x480-1-640x480-640x335.png",
-      publishedAt: "2022-05-13T00:21:10Z",
-      content:
-        "Thomas Homan, the former Acting Immigration and Customs Enforcement (ICE) Director, says House and Senate Republicans “shouldn’t be talking about Ukraine” while terrorists are exploiting the United S… [+2657 chars]",
-    },
-    {
-      source: { id: "fox-news", name: "Fox News" },
-      author: "Fox News",
-      title:
-        "Biden's 'Great MAGA King' slam backfires, as Trump posts 'Lord of the Rings' meme: 'The Five'",
-      description:
-        'President Biden intended to demean Donald Trump by branding him "The Great MAGA King," the panel on "The Five" discussed Thursday.',
-      url: "https://www.foxnews.com/media/biden-great-maga-king-slam-backfires-trump-lord-of-the-rings-meme-five",
-      urlToImage:
-        "https://static.foxnews.com/foxnews.com/content/uploads/2021/04/GettyImages-1312682563.jpg",
-      publishedAt: "2022-05-13T00:07:18.8885325Z",
-      content:
-        'President Biden ripped Donald Trump by calling him "The Great MAGA King," but the right wing instead embraced the term, while some midterm Democratic candidates hedged on whether they want Biden\'s su… [+2210 chars]',
-    },
-    {
-      source: { id: "the-huffington-post", name: "The Huffington Post" },
-      author: "Liz Skalka, Igor Bobic",
-      title: "Trump Frets Over Underdog Surge In Dr. Oz Senate Race",
-      description:
-        "Conservative commentator Kathy Barnette is nipping at the heels of Trump’s pick in the Pennsylvania race for a Senate seat.",
-      url: "https://www.huffpost.com/entry/mehmet-oz-kathy-barnette-donald-trump-senate_n_627d6a49e4b0b74b0e812485",
-      urlToImage:
-        "https://img.huffingtonpost.com/asset/627d6bfb26000093338a84e0.jpeg?cache=lArfuhh1rw&ops=1778_1000",
-      publishedAt: "2022-05-12T21:57:32Z",
-      content:
-        "Kathy Barnette has jumped ahead in polls for the Republican nomination for a U.S. Senate seatin Pennsylvania.\r\nThe sudden rise of conservative commentator and author Kathy Barnette in polls has Donal… [+3227 chars]",
-    },
-    {
-      source: {
-        id: "the-wall-street-journal",
-        name: "The Wall Street Journal",
-      },
-      author: "Scott Patterson",
-      title:
-        "Committee Investigating Jan. 6 Capitol Riot Subpoenas Kevin McCarthy, Other Lawmakers",
-      description:
-        "The House committee investigating the Jan. 6, 2021, attack on the U.S. Capitol by Trump supporters issued five subpoenas for Republican members of Congress, including the House GOP leader.",
-      url: "https://www.wsj.com/articles/kevin-mccarthy-subpoenaed-by-committee-investigating-jan-6-capitol-riot-11652376657?mod=hp_lead_pos4",
-      urlToImage: "https://images.wsj.net/im-543316/social",
-      publishedAt: "2022-05-12T21:10:00Z",
-      content:
-        "WASHINGTONThe House committee investigating the attack on the U.S. Capitol issued five subpoenas Thursday for members of Congress, including House GOP Leader Kevin McCarthy, marking the first time it… [+472 chars]",
-    },
-    {
-      source: {
-        id: "the-washington-times",
-        name: "The Washington Times",
-      },
-      author: "Seth McLaughlin",
-      title:
-        "Trump warns that Kathy Barnette 'will never' win Pa. Senate seat, redoubles support for Dr. Oz",
-      description:
-        "Former President Trump warned Thursday that Republican Kathy Barnette, who is making an unexpectedly strong showing in polls, will lose the Senate race in Pennsylvania if she captures the GOP nomination.",
-      url: "https://www.washingtontimes.com/news/2022/may/12/trump-warns-kathy-barnette-will-never-win-pa-senat/",
-      urlToImage:
-        "https://twt-thumbs.washtimes.com/media/image/2022/05/12/Election_2022_Senate_Pennsylvania_28582.jpg-87139_c0-67-1620-1012_s1200x700.jpg?3e71e70a595ae01c3575cd138afb2794f9338e66",
-      publishedAt: "2022-05-12T14:02:15Z",
-      content:
-        "Former President Trump warned Thursday that Republican Kathy Barnette, who is making an unexpectedly strong showing in polls, will lose the Senate race in Pennsylvania if she captures the GOP nominat… [+2489 chars]",
-    },
-    {
-      source: { id: "bloomberg", name: "Bloomberg" },
-      author: null,
-      title: "What Would Have to Happen for Trump to Return to Twitter",
-      description: "",
-      url: "https://www.bloomberg.com/news/newsletters/2022-05-12/what-would-have-to-happen-for-trump-to-return-to-twitter",
-      urlToImage: null,
-      publishedAt: "2022-05-12T10:45:02+00:00",
-      content: "",
-    },
-    {
-      source: { id: "wired", name: "Wired" },
-      author: "Wired",
-      title: "Elon Musk May Have a Point About Donald Trump’s Twitter Ban",
-      description:
-        "It’s probably not a good idea for important platforms to be in the business of frequently banning users for life.",
-      url: "https://www.wired.com/story/elon-musk-trump-twitter-ban",
-      urlToImage:
-        "https://media.wired.com/photos/627afb0774e0428e36b7f410/191:100/w_1280,c_limit/What-If-Elon-is-Right-About-Trump-Security-GettyImages-1265090189.jpg",
-      publishedAt: "2022-05-11T18:45:27Z",
-      content:
-        "From the moment Elon Musk announced his intention to buy Twitter and impose upon it his version of free speech, speculation swirled about whether he would let Donald Trump, the ultimate Twitter scoff… [+3984 chars]",
-    },
-    {
-      source: { id: "recode", name: "Recode" },
-      author: "Shirin Ghaffary",
-      title:
-        "Why Trump would probably return to Twitter if Elon Musk lets him.",
-      description:
-        "Trump says he’s done with Twitter. But that’s hard to believe.",
-      url: "https://www.vox.com/recode/23066198/trump-twitter-elon-musk-return-donald-presidency-free-speech",
-      urlToImage:
-        "https://cdn.vox-cdn.com/thumbor/bRkZbZu9xJ2wzwsIdgoJhFZaXMA=/0x100:3000x1671/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/23451924/1394862848.jpg",
-      publishedAt: "2022-05-11T00:20:00Z",
-      content:
-        "Elon Musk, the worlds richest man and soon-to-be-owner of Twitter, made waves on Tuesday when he said he would let former President Donald Trump back on the social media platform he was banned from i… [+5762 chars]",
-    },
-    {
-      source: { id: "the-hill", name: "The Hill" },
-      author: "Rachel Frazin",
-      title:
-        "Supreme Court halts ruling against Trump Clean Water Act rollback in 5-4 decision",
-      description:
-        "The Supreme Court has halted a prior court ruling that struck down a Trump-era rule that limited state and tribal authority to veto projects that could impact their waters, including pipelines.  The Trump rule in question, which was nixed by a federal court i…",
-      url: "https://thehill.com/policy/equilibrium-sustainability/3260315-supreme-court-halts-ruling-against-trump-clean-water-act-rollback-in-5-4-decision/",
-      urlToImage:
-        "https://thehill.com/wp-content/uploads/sites/2/2021/09/newsletter-supremecourt_090221getty.jpg?w=1280",
-      publishedAt: "2022-04-06T14:18:04Z",
-      content:
-        "The Supreme Court has halted a prior court ruling that struck down a Trump-era rule that limited state and tribal authority to veto projects that could impact their waters, including pipelines. \r\nThe… [+1936 chars]",
-    },
-    {
-      source: { id: "the-hill", name: "The Hill" },
-      author: "Jordain Carney, Peter Sullivan",
-      title: "Trump-era fight snags COVID deal",
-      description:
-        "Congress appears poised to punt a $10 billion deal on coronavirus relief until after a looming two-week break, as multiple stumbling blocks are complicating quick passage of the agreement.   A bipartisan group of senators announced this week that they had cli…",
-      url: "https://thehill.com/news/3260056-trump-era-fight-snags-covid-deal/",
-      urlToImage:
-        "https://thehill.com/wp-content/uploads/sites/2/2022/04/thunejohn_040522arl2_lead.jpg?w=1280",
-      publishedAt: "2022-04-06T10:00:00Z",
-      content:
-        "Congress appears poised to punt a $10 billion deal on coronavirus relief until after a looming two-week break, as multiple stumbling blocks are complicating quick passage of the agreement.  \r\nA bipar… [+5716 chars]",
-    },
-    {
-      source: { id: "reuters", name: "Reuters" },
-      author: null,
-      title:
-        "U.S. House panel hits Pro-Trump lawyers with subpoenas over U.S. Capitol riot",
-      description:
-        "The congressional committee investigating the deadly Jan. 6, 2021, attack on the U.S. Capitol said on Tuesday it had issued subpoenas to six people who promoted false claims that the 2020 presidential election was fraudulent and participated in, or encouraged…",
-      url: "https://www.reuters.com/world/us/committee-probing-us-capitol-attack-subpoena-six-over-false-election-claims-2022-03-01/",
-      urlToImage:
-        "https://www.reuters.com/resizer/a-3tCJ3oTpJOkVTwI34uwQb4BY0=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/FKXAE7SESFJJXHRKVYIPE7PNY4.jpg",
-      publishedAt: "2022-03-01T21:44:19Z",
-      content:
-        "WASHINGTON, March 1 (Reuters) - The congressional committee investigating the deadly Jan. 6, 2021, attack on the U.S. Capitol said on Tuesday it had issued subpoenas to six people who promoted false … [+2253 chars]",
-    },
-    {
-      source: { id: "time", name: "Time" },
-      author: "Barbara F. Walter",
-      title:
-        "Trump Could Still Lead the U.S. to Civil War—Even if He Doesn't Run in 2024",
-      description:
-        "There are worrying parallels when we compare what's happening in the U.S. to what happened in other countries torn apart by civil wars",
-      url: "http://time.com/6141468/trump-us-civil-war/",
-      urlToImage:
-        "https://api.time.com/wp-content/uploads/2022/01/Trump-Milosevic-03.jpg?quality=85&w=1200&h=628&crop=1",
-      publishedAt: "2022-01-24T19:10:01Z",
-      content:
-        "Ask most people why countries break apart and many will say that different groups sharing a single country naturally dislike and distrust one another. Yugoslavia fragmented because the Serbs and Croa… [+14289 chars]",
-    },
-    {
-      source: { id: "aftenposten", name: "Aftenposten" },
-      author: "NTB-AP-AFP",
-      title: "Oberstløytnant som vitnet mot Trump, går av",
-      description:
-        "Oberstløytnant Alexander Vindman, som vitnet mot president Donald Trump i riksrettssaken, orker ikke mer mobbing og trekker seg fra hæren.",
-      url: "https://www.aftenposten.no/verden/i/y3QoOK/Oberstloytnant-som-vitnet-mot-Trump_-gar-av",
-      urlToImage:
-        "https://premium.vgc.no/ap/images/bd89d0be-e705-4c34-9d52-1a56b5059cd6?fit=crop&q=80&w=1440",
-      publishedAt: "2020-07-09T05:07:25.190605Z",
-      content:
-        "smp-stories-top-widget\r\nVindman fikk sparken fra sin stilling i det nasjonale sikkerhetsrådet i Det hvite hus i februar, to dager etter at president Donald Trump ble frikjent.\r\nVindman lå an til forf… [+1055 chars]",
-    },
-    {
-      source: { id: "vice-news", name: "Vice News" },
-      author: "David Gilbert",
-      title:
-        "Far-Right Social Network Gab Has a Verified Account Waiting For Trump With 27,000 Followers",
-      description:
-        "Gab users have been instructed to tweet at and write to the president urging him to join the network, which is filled with conspiracy theories, racism, and antisemitism.",
-      url: "https://www.vice.com/en_us/article/z3exw4/far-right-social-network-gab-has-a-verified-account-waiting-for-trump-with-27000-followers",
-      urlToImage:
-        "https://video-images.vice.com/test-uploads/articles/5ecfac1d185c22009661743b/lede/1590670574578-AP_20143569698255.jpeg?crop=1xw:0.8427xh;0xw,0.1573xh&resize=1200:*",
-      publishedAt: "2020-05-28T13:56:57Z",
-      content:
-        "Want the best of VICE News straight to your inbox? Sign up here.\r\n As President Donald Trump fumes at Twitters decision to fact-check two of his tweets this week, a ready-made replacement social netw… [+3512 chars]",
-    },
-    {
-      source: { id: "vice-news", name: "Vice News" },
-      author: "Carter Sherman",
-      title:
-        "Trump's FDA Won't Let Women Get Abortion Pills Remotely In a Pandemic. So The ACLU Is Suing.",
-      description:
-        "Pregnant people have make an in-person visit to pick up the pill — even if they've already seen a provider about getting an abortion.",
-      url: "https://www.vice.com/en_us/article/935yq7/trumps-fda-wont-let-women-get-abortion-pills-remotely-in-a-pandemic-so-the-aclu-is-suing",
-      urlToImage:
-        "https://video-images.vice.com/test-uploads/articles/5eceae1504ee25009b133490/lede/1590603286527-AbortionPills.jpeg?crop=1xw:0.8425xh;0xw,0.1425xh&resize=1200:*",
-      publishedAt: "2020-05-27T18:43:49Z",
-      content:
-        "As the coronavirus pandemic ground almost every U.S. industry to a standstill, the Trump administration urged healthcare professionals to use telemedicine to see patients remotely and stem the spread… [+4029 chars]",
-    },
-  ];
-
+  
   constructor() {
     super();
     // console.log("Hello news component");
     this.state = {
-      articles: this.articles,
+      articles: [],
       loading: false,
     };
+  }
+
+  async componentDidMount() {
+    // console.log("cdm");
+    let url =
+      "https://newsapi.org/v2/top-headlines?country=in&apiKey=03362fbea67141c385ff6546c0193e75";
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    console.log(parsedData);
+    this.setState({ articles: parsedData.articles });
   }
 
   render() {
     return (
       <div className="container my-3">
-        <h2>NewsTiger - Top Headlines</h2>
+        <h1>NewsTiger - Top Headlines</h1>
         <div className="row">
           {this.state.articles.map((element) => {
             return (
               <div className="col-md-4" key={element.url}>
                 <NewsItem
-                  title={element.title.slice(0,40)}
-                  description={element.description.slice(0, 80)}
+                  title={element.title ? element.title : ""}
+                  description={element.title ? element.description : ""}
                   imageUrl={element.urlToImage}
                   newsUrl={element.url}
                 />
