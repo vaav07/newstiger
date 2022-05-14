@@ -282,7 +282,8 @@ export class News extends Component {
     super();
     // console.log("Hello news component");
     this.state = {
-      articles: this.state,
+      articles: this.articles,
+      loading: false,
     };
   }
 
@@ -291,20 +292,18 @@ export class News extends Component {
       <div className="container my-3">
         <h2>NewsTiger - Top Headlines</h2>
         <div className="row">
-          <div className="col-md-4">
-            <NewsItem
-              title="my title"
-              description="mydesc"
-              imageUrl="https://storage.googleapis.com/afs-prod/media/3e01d3953b8f4e93b81c4df9b5852d82/3000.jpeg"
-              newsUrl="TODO"
-            />
-          </div>
-          <div className="col-md-4">
-            <NewsItem title="my title" description="mydesc" />
-          </div>
-          <div className="col-md-4">
-            <NewsItem title="my title" description="mydesc" />
-          </div>
+          {this.state.articles.map((element) => {
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={element.title.slice(0,40)}
+                  description={element.description.slice(0, 80)}
+                  imageUrl={element.urlToImage}
+                  newsUrl={element.url}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     );
