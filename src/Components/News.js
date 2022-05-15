@@ -1,8 +1,22 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
+import PropTypes from 'prop-types'
 
 export class News extends Component {
+static defaultProps = {
+  country: 'in',
+  pageSize : 8,
+  category: 'general'
+}
+
+static propTypes = {
+  country: PropTypes.string,
+  pageSize: PropTypes.number,
+  category: PropTypes.string
+}
+
+
   constructor() {
     super();
     // console.log("Hello news component");
@@ -15,7 +29,7 @@ export class News extends Component {
 
   async componentDidMount() {
     // console.log("cdm");
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=03362fbea67141c385ff6546c0193e75&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=03362fbea67141c385ff6546c0193e75&page=1&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
 
     let data = await fetch(url);
@@ -30,7 +44,7 @@ export class News extends Component {
 
   handlePrevClick = async () => {
     // console.log("prev");
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=03362fbea67141c385ff6546c0193e75&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=03362fbea67141c385ff6546c0193e75&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
@@ -53,7 +67,7 @@ export class News extends Component {
         Math.ceil(this.state.totalResults / this.props.pageSize)
       )
     ) {
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=03362fbea67141c385ff6546c0193e75&page=${
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=03362fbea67141c385ff6546c0193e75&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`;
       this.setState({ loading: true });
