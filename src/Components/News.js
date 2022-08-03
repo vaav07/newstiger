@@ -48,18 +48,25 @@ const News = (props) => {
   // };
 
   const fetchMoreData = async () => {
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${
+      props.country
+    }&category=${props.category}&apiKey=${props.apiKey}&page=${
+      page + 1
+    }&pageSize=${props.pageSize}`;
     setPage(page + 1);
 
     let data = await fetch(url);
     let parsedData = await data.json();
-    setTotalResults({ totalResults: parsedData.totalResults });
-    setArticles({ articles: articles.concat(parsedData.articles) });
+    setArticles(articles.concat(parsedData.articles));
+    setTotalResults(parsedData.totalResults);
   };
 
   return (
     <>
-      <h1 className="text-center" style={{margin: '35px 0px', marginTop: '90px'}} >
+      <h1
+        className="text-center"
+        style={{ margin: "35px 0px", marginTop: "90px" }}
+      >
         NewsTiger - Top {capitalizefirstLetter(props.category)} Headlines
       </h1>
       {loading && <Spinner />}
